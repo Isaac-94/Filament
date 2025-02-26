@@ -13,7 +13,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Filament" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail setSelectedModel={setSelectedModel} />} />
         <Route path="/lamp-ar-mv" element={<LampARmv modelPath={selectedModel} />} />
         <Route path="/lamp-ar" element={<LampAR modelPath={selectedModel} />} />
