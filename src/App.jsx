@@ -13,7 +13,7 @@ const App = () => {
   return (
     <Router basename="/Filament">
       <Routes>
-        <Route path="/Filament" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/product/:id"
           element={<ProductDetail setSelectedModel={setSelectedModel} />}
