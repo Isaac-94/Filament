@@ -56,7 +56,7 @@ const LampARmv = ({ modelPath }) => {
         camera-controls
         auto-rotate
         shadow-intensity="1"
-        scale="0.5 0.5 0.5"
+        scale="1 1 1"
         style={{ width: "100%", height: "80vh" }}
         decoding="async"
       ></model-viewer>
