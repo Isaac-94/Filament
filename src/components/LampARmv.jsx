@@ -51,12 +51,12 @@ const LampARmv = ({ modelPath }) => {
         alt="Lámpara en 3D"
         ar
         ar-scale="fixed"
-        ar-modes="webxr scene-viewer quick-look"
+        ar-modes="scene-viewer webxr quick-look"
         ar-hit-test
         camera-controls
         auto-rotate
         shadow-intensity="1"
-        scale="1 1 1"
+        scale="0.5 0.5 0.5"
         style={{ width: "100%", height: "80vh" }}
         decoding="async"
       ></model-viewer>
