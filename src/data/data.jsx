@@ -2,8 +2,9 @@
 const lamps = [
   {
     id: 1,
-    name: "Lámpara A",
-    description: "Descripción A",
+    name: "Dopamine",
+    description:
+      "Con un diseño moderno y minimalista, con un difusor de luz cilíndrico y texturizado, que suaviza la iluminación y crea un ambiente cálido. Su base es cónica y de color azul metalizado, lo que le da un contraste sutil pero llamativo. Ideal para espacios modernos y hogareños.",
     image: "/Filament/assets/lamp1.webp",
     model: "/Filament/models/lamp1.glb",
   },

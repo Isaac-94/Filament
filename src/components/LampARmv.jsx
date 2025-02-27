@@ -59,28 +59,7 @@ const LampARmv = ({ modelPath }) => {
         scale="0.5 0.5 0.5"
         style={{ width: "100%", height: "80vh" }}
         decoding="async"
-      >
-        {arSupported && (
-          <button
-            slot="ar-button"
-            style={{
-              position: "absolute",
-              bottom: "10px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              padding: "10px 20px",
-              fontSize: "16px",
-              backgroundColor: "#007BFF",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Ver en AR
-          </button>
-        )}
-      </model-viewer>
+      ></model-viewer>
     </div>
   );
 };
