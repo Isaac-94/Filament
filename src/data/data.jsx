@@ -27,7 +27,7 @@ const lamps = [
     name: "Lámpara D",
     description: "Descripción B",
     image: "/Filament/assets/lamp4.webp",
-    model: "/Filament/models/lamp2.glb",
+    model: "/Filament/models/lamp_corregida.glb",
   },
 ];
 
