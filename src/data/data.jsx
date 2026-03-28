@@ -10,7 +10,7 @@ const lamps = [
   },
   {
     id: 2,
-    name: "Lámpara B",
+    name: "Lámpara B corregida",
     description: "Descripción B",
     image: "/Filament/assets/lamp2.jpg",
     model: "/Filament/models/lamp_corregida.glb",
