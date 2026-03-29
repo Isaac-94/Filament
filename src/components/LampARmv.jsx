@@ -1,35 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "@google/model-viewer";
 
 const LampARmv = ({ modelPath }) => {
-  const modelViewerRef = useRef(null);
-  const [arSupported, setArSupported] = useState(null); // null = sin determinar
+  const [isMounted, setIsMounted] = useState(false);
+  const [arSupported, setArSupported] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     document.body.style.overflow = "hidden";
-    const mv = modelViewerRef.current;
 
-    if (!mv) return;
+    const modelViewer = document.getElementById("model-viewer");
 
-    const handleLoad = () => {
-      setArSupported(mv.canActivateAR);
-    };
-
-    const handleArStatus = (event) => {
-      if (event.detail.status === "failed") {
-        setArSupported(false);
+    if (modelViewer) {
+      // Verificar compatibilidad con AR
+      if (modelViewer.canActivateAR) {
+        setArSupported(true);
       }
-    };
 
-    mv.addEventListener("load", handleLoad);
-    mv.addEventListener("ar-status", handleArStatus);
+      modelViewer.addEventListener("ar-status", (event) => {
+        if (event.detail.status === "failed") {
+          console.warn("AR no es compatible en este dispositivo.");
+          setArSupported(false);
+        }
+      });
+    }
 
     return () => {
       document.body.style.overflow = "auto";
-      mv.removeEventListener("load", handleLoad);
-      mv.removeEventListener("ar-status", handleArStatus);
+      setIsMounted(false);
     };
   }, []);
+
+  if (!isMounted) return null;
 
   return (
     <div
@@ -44,23 +46,20 @@ const LampARmv = ({ modelPath }) => {
       }}
     >
       <model-viewer
-        ref={modelViewerRef}
+        id="model-viewer"
         src={modelPath}
         alt="Lámpara en 3D"
         ar
-        ar-scale="auto" // ← el fix principal para iOS
+        ar-scale="fixed"
         ar-modes="scene-viewer webxr quick-look"
+        ar-hit-test
         camera-controls
         auto-rotate
         shadow-intensity="1"
+        scale="0.5 0.5 0.5"
         style={{ width: "100%", height: "80vh" }}
+        decoding="async"
       ></model-viewer>
-
-      {arSupported === false && (
-        <p style={{ color: "red", textAlign: "center" }}>
-          AR no disponible en este dispositivo.
-        </p>
-      )}
     </div>
   );
 };
